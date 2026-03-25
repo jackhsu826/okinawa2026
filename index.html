@@ -1,0 +1,264 @@
+<!-- Style Palette: W1651 Extreme Luxury (#B59A6D Gold, #FFFFFF White, #0A0A0A Black) -->
+<!-- Application Plan: Local Video Hero. Full 8-Day Itinerary. Green for Vegan, Red for Meat. Gemini 2.5 Flash Concierge. -->
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KERAMA BLUE | 30年好友們的家庭旅行</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@200;300;400;500&family=Noto+Serif+TC:wght@200;300;400;500;600&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #FFFFFF; color: #333333; overflow-x: hidden; }
+        .font-serif { font-family: 'Noto Serif TC', serif; }
+        .font-display { font-family: 'Cinzel', serif; letter-spacing: 0.05em; }
+        
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-thumb { background: #B59A6D; }
+
+        .vertical-text { writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 0.4em; line-height: 1.5; }
+        
+        /* Video Hero Section */
+        .hero-section { position: relative; height: 100vh; width: 100%; overflow: hidden; background-color: #000; }
+        .hero-video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; transform: translate(-50%, -50%); object-fit: cover; z-index: 1; }
+        .overlay-dark { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.35); z-index: 5; pointer-events: none; }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        .w1651-line-v { width: 1px; height: 80px; background-color: #B59A6D; margin: 0 auto; }
+        .w1651-line-h { height: 1px; width: 40px; background-color: #B59A6D; margin: 20px auto; }
+
+        .css-timeline-container { position: relative; padding-left: 1.5rem; border-left: 1px solid #EAEAEA; }
+        
+        .btn-gold { border: 1px solid #B59A6D; color: #B59A6D; transition: all 0.3s; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); }
+        .btn-gold:hover { background: #B59A6D; color: white; }
+        
+        .glass-panel { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(12px); border: 1px solid rgba(181, 154, 109, 0.15); }
+        
+        .modal { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); }
+        .modal-content { position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 95%; max-width: 600px; padding: 2rem; max-height: 80vh; overflow-y: auto; }
+
+        @keyframes scrolldown { 0% { transform: translateY(-100%); } 100% { transform: translateY(200%); } }
+        .animate-scroll { animation: scrolldown 2.5s infinite; }
+        
+        /* Text Colors for Veg/Meat */
+        .text-vegan { color: #16a34a; }
+        .text-meat { color: #dc2626; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Nav -->
+    <nav class="fixed w-full z-50 mix-blend-difference text-white py-6 px-6 md:px-12 flex justify-between items-start pointer-events-none">
+        <div class="font-display text-xl md:text-3xl tracking-[0.4em] font-light">KERAMA BLUE</div>
+        <div class="vertical-text text-[10px] md:text-xs tracking-[0.4em] uppercase font-light opacity-80">Okinawa 2026</div>
+    </nav>
+
+    <!-- 01. Hero Section (Autoplay Video) -->
+    <header class="hero-section">
+        <div class="overlay-dark"></div>
+        <video class="hero-video" autoplay muted loop playsinline poster="images/hero.jpg">
+            <source src="images/video.mp4" type="video/mp4">
+        </video>
+
+        <div class="relative z-10 h-full flex flex-col justify-center items-center text-white px-4 text-center">
+            <div class="flex flex-row-reverse items-center justify-center gap-6 md:gap-24 reveal active">
+                <h1 class="font-serif vertical-text text-4xl md:text-7xl font-light leading-snug drop-shadow-2xl">
+                    上帝視角的純粹<br>
+                    <span class="text-3xl md:text-5xl mt-8 md:mt-12 block text-[#B59A6D]">慶良間映像</span>
+                </h1>
+                <div class="font-serif vertical-text text-xs md:text-xl font-light text-white/90 border-l border-[#B59A6D]/50 pl-4 md:pl-8 text-left">
+                    俯瞰慶良間的極致藍調<br>四個家族的奢華紀行
+                </div>
+            </div>
+            <div class="absolute bottom-12 flex flex-col items-center">
+                <div class="w1651-line-v mb-4 h-12 opacity-50"></div>
+                <div class="w-[1px] h-12 bg-white/20 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1/2 bg-[#B59A6D] animate-scroll"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Entities -->
+    <section id="entities" class="py-20 md:py-32 bg-[#FAFAFA]">
+        <div class="max-w-6xl mx-auto px-6 reveal">
+            <div class="text-center mb-16 md:mb-24">
+                <span class="text-[#B59A6D] tracking-[0.4em] text-[10px] font-display uppercase">The Strategic Families</span>
+                <h2 class="font-serif text-xl md:text-4xl tracking-[0.3em] text-[#0A0A0A] font-light">同行成員與核心戰略</h2>
+                <div class="w1651-line-h"></div>
+            </div>
+            <div class="flex flex-col border-t border-[#EAEAEA]" id="family-grid"></div>
+        </div>
+    </section>
+
+    <!-- Itinerary Section -->
+    <section id="itinerary" class="py-20 md:py-48 bg-[#FFFFFF]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+                <div>
+                    <span class="text-[#B59A6D] tracking-[0.4em] text-[10px] uppercase font-display">Master Itinerary</span>
+                    <h2 class="font-serif text-2xl md:text-4xl tracking-[0.3em] font-light text-[#0A0A0A]">每日行程計畫 7/27 - 8/3</h2>
+                </div>
+                <button onclick="askAI()" class="flex items-center gap-3 px-8 py-3 btn-gold text-[10px] tracking-[0.2em] font-display">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i> ✨ AI 智能行程顧問
+                </button>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div class="lg:col-span-3 flex flex-row lg:flex-col overflow-x-auto gap-4 no-scrollbar border-b lg:border-none border-gray-200" id="itinerary-nav"></div>
+                <div class="lg:col-span-9">
+                    <div class="min-h-[500px]">
+                        <div class="border-b border-gray-200 pb-8 mb-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-2">
+                            <h3 id="daily-title" class="font-serif text-2xl md:text-4xl tracking-widest text-[#B59A6D] font-light"></h3>
+                            <span id="daily-desc" class="text-[10px] text-gray-400 uppercase tracking-widest md:text-right"></span>
+                        </div>
+                        <div id="daily-content" class="css-timeline-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Modal -->
+    <div id="ai-modal" class="modal" onclick="toggleModal('ai-modal')">
+        <div class="modal-content glass-panel" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-start mb-6 border-b border-[#EAEAEA] pb-4">
+                <div class="flex items-center gap-3"><i data-lucide="sparkles" class="text-[#B59A6D]"></i><h4 class="font-serif text-xl tracking-widest">管家建議</h4></div>
+                <button onclick="toggleModal('ai-modal')"><i data-lucide="x"></i></button>
+            </div>
+            <div id="ai-loading" class="hidden py-16 text-center"><div class="inline-block w-8 h-8 border-2 border-[#B59A6D] border-t-transparent rounded-full animate-spin"></div></div>
+            <div id="ai-response" class="text-sm font-light text-gray-600 leading-relaxed tracking-widest"></div>
+        </div>
+    </div>
+
+    <footer class="bg-[#0A0A0A] text-white py-24 text-center">
+        <h2 class="font-display text-2xl tracking-[0.5em] mb-4 text-[#B59A6D]">KERAMA BLUE</h2>
+        <p class="text-[8px] text-gray-700 uppercase font-display tracking-widest">Architecture of Memories | OKINAWA 2026</p>
+    </footer>
+
+    <script type="module">
+        const apiKey = ""; 
+        window.state = { currentDay: 1 };
+
+        const familyData = [
+            { id: "01", name: "卡卡家", meta: "Kaka Family / 1.5Y", strategy: "推車支援、飯店頂樓<span class='text-red-600 font-medium'>夢幻泡泡秀</span>、玩沙踏浪避暑。" },
+            { id: "02", name: "麻吉家", meta: "Machi Family / Vegan", strategy: "嚴格<span class='text-green-600 font-medium'>蛋素/五辛素</span>安排、高強度運動浮潛、DMM水族館貓咪咖啡療癒。" },
+            { id: "03", name: "小米家", meta: "Xiaomi Family / Gourmet", strategy: "Day 2 抵達。絕對美食主義 (<span class='text-red-600 font-medium'>台南嘴</span>)、湯屋與桑拿SPA體驗。" },
+            { id: "04", name: "淦淦家", meta: "Gangan / Nightlife", strategy: "賽車手自駕支援、居酒屋文化、<span class='text-red-600 font-medium'>深夜暢飲模式</span>、飛機落日拍攝。" }
+        ];
+
+        const itineraryData = [
+            { day: 1, date: "07/27", title: "夢幻泡泡秀與行政暢飲", desc: "Hotel Aqua Citta Naha ‧ Borrachos", events: [
+                { time: "15:00", text: "先行組抵達：卡卡家與麻吉家抵達。由機場搭乘計程車直達水之都飯店 (Hotel Aqua Citta Naha)。" },
+                { time: "15:30", text: "酒廊暢飲：入住行政套房後，直接進入 1 樓行政酒廊。供應精選紅白酒、發泡酒、Orion 生啤與手沖咖啡，無限量供應。" },
+                { time: "17:00", text: "夢幻泡泡秀：準時帶卡卡弟弟與麻吉妹妹前往頂樓。每分鐘 4,000 顆泡泡降臨，營造出雲端冒險的視覺奇觀。" },
+                { time: "👶 親子", text: "孩子們的視覺奇觀與泳池時光。" },
+                { time: "晚上", text: "Borrachos 墨西哥餐廳(葷素)：淦淦家抵達後全員合流。步行前往 Borrachos 沉浸異國風味。<br><span class='text-red-600'>🥩 推薦：桌邊現製酪梨醬、烤石垣牛塔可</span><br><span class='text-green-600'>🌱 素食：三豆沙拉、蔬食布里托、酪梨辣味玉米片</span>" },
+                { time: "深夜", text: "暢飲時光：回到酒廊或泳池享受老友星空下暢談模式。" }
+            ]},
+            { day: 2, date: "07/28", title: "華麗午餐與國際通吃買", desc: "Hotel Transition ‧ Southwest Grand Hotel", events: [
+                { time: "10:00", text: "飯店移轉：全員 Check-out 水之都，步行至對面南門飯店 (South Gate Hotel) 寄存大件行李。" },
+                { time: "11:00", text: "小米家抵達：搭單軌直奔國際通。利用姊妹店福利，行李免費寄放在位於國際通核心的 Southwest Grand Hotel，隨即輕裝用餐。" },
+                { time: "11:30", text: "華麗義大利午餐：A LONG VACATION (一樓餐廳)。國際通最時尚飯店系咖啡廳，神級美味舒芙蕾必吃！<br><span class='text-red-600'>🥩 午間精選：東京名店同款舒芙蕾、新鮮龍蝦堡</span><br><span class='text-green-600'>🌱 點評必推：在地島野菜季節意麵、松露薯條、野菇義大利麵</span>" },
+                { time: "下午", text: "漫步國際通與水療：掃貨清單：御菓子御殿紅芋塔、首里石鹼手工皂、鹽屋雪鹽冰淇淋。漫步牧志市場買現切芒果與 Blue Seal 冰。<br>分流休憩：逛累的人回西南酒店。大人在頂樓景觀桑拿享受 Self-löyly，孩子們在室內全景泳池或室外按摩池放鬆避暑。" },
+                { time: "👶 親子", text: "西南酒店室內泳池與按摩池。" },
+                { time: "晚上", text: "屋台村私房串燒(葷素)：先至 Tamatebako 享用<span class='text-green-600'>有機蔬食拉麵</span>。隨後轉往屋台村 11 號「串焼き 鷠」。飯後賣場採買隔日早餐。<br><span class='text-red-600'>🥩 肉食：凱弟必嚐阿古豬串燒</span><br><span class='text-green-600'>🌱 素食：炭火焦香烤香菇、青椒與山藥</span>" }
+            ]},
+            { day: 3, date: "07/29", title: "座間味島與視覺系居酒屋", desc: "Kerama Blue ‧ Mekiki no Ginji", events: [
+                { time: "09:00", text: "高速船出發：搭乘 50 分鐘高速船前往最適合浮潛的海灘 (米其林指南2星海灘)。" },
+                { time: "👶 親子", text: "麻吉妹妹與小堯盡情浮潛看小丑魚；卡卡弟弟玩沙踏浪。" },
+                { time: "晚上", text: "目利きの銀次 (新都心本舗)：晚餐在裝潢如巨大木桶、每個餐點都令人髮指好吃的居酒屋名店。<br><span class='text-red-600'>🥩 必吃：五點盛刺身、海膽醬焗烤生蠔(3大顆490円台南嘴首選)、明太子奶油烤飯糰、鮭魚卵海鮮茶碗蒸、厚切烤牛舌</span><br><span class='text-green-600'>🌱 素食：烤山藥、外酥內嫩蔬菜天婦羅、豐富新鮮蔬菜串燒、奶油花椰菜、烤小杏鮑菇(380円)、海帶絲與島豆腐料理</span>" }
+            ]},
+            { day: 4, date: "07/30", title: "PARCO CITY 與 美國村煙火", desc: "Shopping Strategy ‧ Fireworks Night", events: [
+                { time: "白天", text: "PARCO CITY 親子戰略：沖繩規模最大的購物中心，坐擁無敵海景。在美食街用餐可欣賞漸層藍大海。<br><span class='text-green-600'>🌱 素食：美食街尋找美味素食烏龍麵</span>" },
+                { time: "👶 親子", text: "服務台借「汽車造型推車」，麻吉妹妹、小堯與凱弟組成推車大隊。" },
+                { time: "20:00", text: "美國村煙火牛排夜：準時在海邊觀賞煙火。<br><span class='text-red-600'>🥩 肉食：Steakhouse 88 或 Han's 享受厚切牛排</span><br><span class='text-green-600'>🌱 素食：Tami's Vegan Cafe 坐在露台看摩天輪享受豆腐漢堡</span>" }
+            ]},
+            { day: 5, date: "07/31", title: "秘境浮潛與永旺燒肉之夜", desc: "Odomari Beach ‧ Aeon Rycom", events: [
+                { time: "上午", text: "大泊海灘 (Odomari Beach)：伊計島秘境浮潛，海水透明度極高 (500 日圓入場費含淋浴)。" },
+                { time: "👶 親子", text: "麻吉妹妹岸邊可見成群熱帶魚，浮潛或透明玻璃船同樂。" },
+                { time: "下午", text: "永旺來客夢 (Aeon Rycom)：玩累後前往享受打到骨折的年中慶購物樂趣。" },
+                { time: "晚上", text: "大團體燒肉盛宴：<br><span class='text-red-600'>🥩 肉食組：Nabeshima (黑毛和牛與牛舌吃到飽) / Meatimg (阿古豬全豬肉套餐) / くら寿司藏壽司 (2F)</span><br><span class='text-green-600'>🌱 素食組：館內 KIJIMUNA (蔬食塔可飯) / Aeon超市採買鮮蔬沙拉與豆皮壽司 / 開車15分至 Gajimaru Cafe 享頂級豆乳擔擔麵</span>" }
+            ]},
+            { day: 6, date: "08/01", title: "渡嘉敷島與南門私家湯屋", desc: "Aharen Beach ‧ South Gate Hotel", events: [
+                { time: "上午", text: "阿波連海灘：慶良間的純淨藍！" },
+                { time: "👶 親子", text: "麻吉妹妹挑戰最後一場深度浮潛！" },
+                { time: "傍晚", text: "南門飯店深度體驗：<br>Family Spa Bath：小米家可預約 2 樓<span class='text-green-600'>私家湯屋 (一小時)</span> 徹底放鬆。<br>桑拿體驗：全員分批使用具備 Self-löyly 功能的公共浴場與桑拿。" },
+                { time: "晚上", text: "港灣美學：晚上帶飲料在頂樓露台，看著泊港碼頭浪漫夜色與渡輪汽笛聲。" }
+            ]},
+            { day: 7, date: "08/02", title: "都會海洋美學 vs 購物分流", desc: "Aquarium ‧ Sunset Beach", events: [
+                { time: "分流", text: "👶 親子組 (麻吉家)：DMM Kariyushi 水族館與 Cat Café MOFF 午餐，愛貓的麻吉妹妹在此徹底療癒。<br>🛍️ 購物組：不看水族館的家庭前往 Ashibinaa Outlet，完成名牌掃貨任務。" },
+                { time: "16:30", text: "豐崎美麗 SUN 海灘：看著飛機從頭頂低空降落並欣賞絕美落日，這是凱弟與阿淦必拍的視覺大作！" },
+                { time: "晚上", text: "樂園 CAFE：享用<span class='text-green-600'>純淨的蔬食終章</span>。" }
+            ]},
+            { day: 8, date: "08/03", title: "瀨長島幸福收尾，蔚藍歸途", desc: "Tiffany Blue ‧ Senagajima", events: [
+                { time: "上午", text: "瀨長島幸福時光：前往瀨長島 Umikaji Terrace，11:00 品嚐超人氣、蓬鬆如雲朵的<span class='text-green-600'>「幸福舒芙蕾 (Happy Pancakes)」</span>，看著 Tiffany 藍的海水與飛機起降。" },
+                { time: "中午", text: "See and Sea 景觀午餐：<br><span class='text-red-600'>🥩 小米爸推薦：See and Sea 的頂級豬肉料理 (プレミアム)</span><br><span class='text-green-600'>🌱 素食：植物性塔可飯 (麻吉家適宜)</span>，看海平面乾杯。" },
+                { time: "下午", text: "機場賦歸：15:00 前機場還車，搭乘星宇 JX871 快樂賦歸。" }
+            ]}
+        ];
+
+        // --- Render Logic ---
+        window.renderFamilyGrid = () => {
+            document.getElementById('family-grid').innerHTML = familyData.map(f => `
+                <div class="grid grid-cols-1 md:grid-cols-12 py-10 border-b border-[#EAEAEA] gap-4 px-4 hover:bg-white transition-all duration-500">
+                    <div class="md:col-span-2 font-display text-4xl text-gray-200">${f.id}</div>
+                    <div class="md:col-span-3 flex flex-col justify-center">
+                        <h3 class="font-serif text-lg md:text-2xl tracking-widest text-[#0A0A0A]">${f.name}</h3>
+                        <p class="text-[9px] text-gray-400 font-display">${f.meta}</p>
+                    </div>
+                    <div class="md:col-span-7 flex items-center">
+                        <p class="text-xs md:text-sm font-light text-gray-500 leading-relaxed">${f.strategy}</p>
+                    </div>
+                </div>`).join('');
+        };
+
+        window.renderItineraryNav = () => {
+            document.getElementById('itinerary-nav').innerHTML = itineraryData.map(d => `
+                <button onclick="state.currentDay = ${d.day}; renderItineraryNav(); renderItineraryContent();" 
+                        class="flex-shrink-0 lg:w-full text-left py-4 px-6 lg:px-2 border-b-2 lg:border-b transition-all ${state.currentDay === d.day ? 'border-[#B59A6D] text-[#B59A6D]' : 'border-transparent text-gray-400'}">
+                    <span class="font-display text-xl lg:text-3xl mr-3">0${d.day}</span>
+                    <span class="text-[9px] uppercase hidden lg:block font-display">${d.date} SCHEDULE</span>
+                </button>`).join('');
+        };
+
+        window.renderItineraryContent = () => {
+            const data = itineraryData.find(d => d.day === state.currentDay);
+            document.getElementById('daily-title').innerText = `Day 0${data.day}.`;
+            document.getElementById('daily-desc').innerText = `${data.title} ‧ ${data.desc}`;
+            document.getElementById('daily-content').innerHTML = data.events.map(ev => `
+                <div class="relative mb-12 pl-8 group">
+                    <div class="absolute -left-[4.5px] top-2 w-2.5 h-2.5 bg-white border border-[#B59A6D] group-hover:bg-[#B59A6D] transition-colors"></div>
+                    <div class="font-display text-lg text-[#B59A6D] leading-none mb-2">${ev.time}</div>
+                    <div class="text-sm font-light text-gray-600 leading-relaxed tracking-wider">${ev.text}</div>
+                </div>`).join('');
+        };
+
+        window.askAI = async () => {
+            const day = itineraryData.find(d => d.day === state.currentDay);
+            const prompt = `你是一位沖繩旅遊導航管家。針對這份行程：${JSON.stringify(day)}，請提供物流、天氣或針對親子、素食、台南嘴老饕的具體貼士。請用繁體中文，專業且優雅。`;
+            toggleModal('ai-modal');
+            const resDiv = document.getElementById('ai-response'); resDiv.innerHTML = "";
+            document.getElementById('ai-loading').classList.remove('hidden');
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] }) });
+                const data = await response.json(); 
+                resDiv.innerHTML = data.candidates[0].content.parts[0].text.replace(/\n/g, '<br>');
+            } catch (e) { resDiv.innerHTML = "管家忙碌中。"; } finally { document.getElementById('ai-loading').classList.add('hidden'); }
+        };
+
+        window.toggleModal = (id) => { const m = document.getElementById(id); m.style.display = m.style.display === 'block' ? 'none' : 'block'; };
+
+        document.addEventListener("DOMContentLoaded", () => {
+            renderFamilyGrid(); renderItineraryNav(); renderItineraryContent(); lucide.createIcons();
+            const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); }));
+            document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
+        });
+    </script>
+</body>
+</html>
